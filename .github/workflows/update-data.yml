@@ -1,0 +1,89 @@
+name: Actualizar datos de Presupuesto Abierto
+
+on:
+  # Ejecución programada: todos los lunes a las 6 AM UTC (3 AM Argentina)
+  schedule:
+    - cron: "0 6 * * 1"
+
+  # Ejecución manual desde la interfaz de GitHub
+  workflow_dispatch:
+    inputs:
+      force_download:
+        description: "Forzar re-descarga de todos los años"
+        required: false
+        default: "false"
+        type: choice
+        options: ["false", "true"]
+      year_start:
+        description: "Año de inicio (ej. 2002)"
+        required: false
+        default: "2002"
+      year_end:
+        description: "Año de fin (ej. 2024)"
+        required: false
+        default: "2024"
+
+jobs:
+  update-data:
+    name: "Pipeline: Descarga → Procesamiento → JSON"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # Necesario para hacer commit y push
+
+    steps:
+      # ── 1. Checkout del repositorio ────────────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ── 2. Configurar Python ───────────────────────────────────────────────
+      - name: Configurar Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      # ── 3. Instalar dependencias ───────────────────────────────────────────
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # ── 4. Correr el pipeline ──────────────────────────────────────────────
+      - name: Correr pipeline
+        env:
+          FORCE_FLAG: ${{ github.event.inputs.force_download == 'true' && '--force' || '' }}
+          YEAR_START: ${{ github.event.inputs.year_start || '2002' }}
+          YEAR_END:   ${{ github.event.inputs.year_end   || '2024' }}
+        run: |
+          python scripts/main.py \
+            --year-start $YEAR_START \
+            --year-end   $YEAR_END \
+            $FORCE_FLAG
+
+      # ── 5. Verificar que los JSON se generaron ────────────────────────────
+      - name: Verificar JSONs
+        run: |
+          echo "=== Archivos generados en docs/data/ ==="
+          ls -lh docs/data/
+          echo ""
+          echo "=== Primeras líneas de anses.json ==="
+          head -20 docs/data/anses.json
+
+      # ── 6. Commit y push de los JSON actualizados ─────────────────────────
+      - name: Commit y push
+        run: |
+          git config user.name  "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+          # Solo hacer commit si hay cambios
+          git add docs/data/
+          if git diff --cached --quiet; then
+            echo "Sin cambios en los datos. No se hace commit."
+          else
+            TIMESTAMP=$(date -u "+%Y-%m-%d %H:%M UTC")
+            git commit -m "chore: actualizar datos Presupuesto Abierto [${TIMESTAMP}]"
+            git push
+            echo "✅ Datos actualizados y publicados."
+          fi

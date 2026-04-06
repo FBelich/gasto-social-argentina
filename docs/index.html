@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Gasto Social · Argentina</title>
+  <meta name="description" content="Dashboard de gasto social de Argentina basado en datos de Presupuesto Abierto (MECON). Evolución histórica desde 2002."/>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
+  <!-- ECharts -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+
+<!-- ── LOADING OVERLAY ────────────────────────────────────────────────────── -->
+<div id="loverlay" class="loverlay">
+  <div class="spinner"></div>
+  <div class="ltxt">Cargando datos…</div>
+</div>
+
+<!-- ── HEADER ─────────────────────────────────────────────────────────────── -->
+<header class="header">
+  <div class="hbrand">
+    <div class="hicon">🏛️</div>
+    <div>
+      <div class="htitle">Gasto Social · Argentina</div>
+      <div class="hsub" id="headerSub">Presupuesto Abierto · MECON</div>
+    </div>
+  </div>
+
+  <!-- BUBBLE NAV (centrada) -->
+  <div class="hcenter">
+    <nav class="bnav" role="navigation" aria-label="Secciones">
+      <button class="bubble anses-tab active" data-section="anses" aria-pressed="true">
+        <span class="bdot"></span>
+        ANSES
+        <span class="bkpi" id="bkpi-anses">—</span>
+      </button>
+      <!--
+        Futuras burbujas (agregar cuando tengan datos):
+        <button class="bubble edu-tab" data-section="educacion">
+          <span class="bdot"></span>
+          Educación
+        </button>
+      -->
+    </nav>
+  </div>
+
+  <div class="hright">
+    <span class="badge">
+      <span class="dlive"></span>
+      Datos públicos
+    </span>
+  </div>
+</header>
+
+<!-- ── CONTENIDO PRINCIPAL ────────────────────────────────────────────────── -->
+<main class="main">
+
+  <!-- ════════════════════════════════════════════════════════
+       PANEL: ANSES
+       ════════════════════════════════════════════════════════ -->
+  <div id="panel-anses" class="cpanel active">
+
+    <!-- KPIs -->
+    <div class="shdr">
+      <div class="sacc" style="background:var(--anses)"></div>
+      <div class="stag">Administración Nacional de la Seguridad Social</div>
+      <div class="sttl">ANSES · Resumen</div>
+    </div>
+    <div class="kgrid" id="anses-kpis">
+      <!-- Renderizado dinámicamente por app.js -->
+    </div>
+
+    <!-- Evolución histórica -->
+    <div class="shdr" style="margin-top:28px">
+      <div class="stag">Evolución histórica</div>
+      <div class="sttl">Crédito devengado anual</div>
+    </div>
+
+    <div class="chart-grid-full">
+      <div class="card">
+        <div class="card-hdr">
+          <div>
+            <div class="ctitle">Total anual · ANSES</div>
+            <div class="csub">Crédito devengado en pesos corrientes</div>
+          </div>
+          <span class="cpill" style="color:var(--anses)">Serie histórica</span>
+        </div>
+        <div class="cwrap">
+          <div id="anses-line-total" style="height:300px;width:100%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-grid-full">
+      <div class="card">
+        <div class="card-hdr">
+          <div>
+            <div class="ctitle">Composición histórica por clasificador económico</div>
+            <div class="csub">Barras apiladas · Crédito devengado por componente</div>
+          </div>
+          <span class="cpill">Apilado</span>
+        </div>
+        <div class="cwrap">
+          <div id="anses-stacked" style="height:340px;width:100%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Composición del último año -->
+    <div class="shdr" style="margin-top:28px">
+      <div class="stag">Composición · Último año disponible</div>
+      <div class="sttl">Crédito devengado por clasificador</div>
+    </div>
+
+    <div class="comp-grid" id="anses-composition">
+      <!-- Renderizado dinámicamente por app.js -->
+    </div>
+
+  </div>
+  <!-- /panel-anses -->
+
+  <!--
+    Futuras secciones:
+    <div id="panel-educacion" class="cpanel"> ... </div>
+    <div id="panel-salud"     class="cpanel"> ... </div>
+  -->
+
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <p>
+    Datos: <a href="https://www.presupuestoabierto.gob.ar/sici/" target="_blank" rel="noopener">Presupuesto Abierto · Ministerio de Economía · Argentina</a>
+    &nbsp;·&nbsp;
+    Actualización automática vía GitHub Actions
+  </p>
+</footer>
+
+<!-- ── SCRIPTS ─────────────────────────────────────────────────────────────── -->
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/app.js"></script>
+
+</body>
+</html>

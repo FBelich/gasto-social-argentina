@@ -1,0 +1,99 @@
+{
+  "anio": 2024,
+  "cards": [
+    {
+      "labels": [
+        "Prestaciones de la seguridad social",
+        "A unidades familiares",
+        "A los fondos fiduciarios y otros entes del Sector Público Nacional no financiero",
+        "Sueldos y salarios",
+        "Contribuciones patronales",
+        "Servicios no personales",
+        "Beneficios y compensaciones",
+        "A la Administración Pública Provincial",
+        "Rentas sobre bienes intangibles",
+        "Prestaciones sociales",
+        "Otros"
+      ],
+      "values": [
+        30241161,
+        8920276,
+        1263579,
+        544842,
+        149047,
+        88145,
+        46871,
+        26000,
+        12184,
+        10068,
+        5047
+      ],
+      "total": 41307220,
+      "columna": "clasificador_economico_8_digitos_desc",
+      "titulo": "Clasificador Economico 8 Digitos"
+    },
+    {
+      "labels": [
+        "Recursos Propios",
+        "Tesoro Nacional",
+        "Crédito Interno",
+        "Crédito Externo",
+        "Transferencias Externas"
+      ],
+      "values": [
+        36645908,
+        3194331,
+        1466980,
+        0,
+        0
+      ],
+      "total": 41307220,
+      "columna": "fuente_financiamiento_desc",
+      "titulo": "Fuente Financiamiento"
+    },
+    {
+      "labels": [
+        "Seguridad Social",
+        "Salud"
+      ],
+      "values": [
+        40070686,
+        1236534
+      ],
+      "total": 41307220,
+      "columna": "funcion_desc",
+      "titulo": "Funcion"
+    },
+    {
+      "labels": [
+        "Prestaciones Previsionales",
+        "Asignaciones Familiares",
+        "Complementos a las Prestaciones Previsionales",
+        "Transferencias y Contribuciones a la Seguridad Social y Organismos Descentralizados",
+        "Actividades Centrales",
+        "Atencion Ex-Cajas Provinciales",
+        "Pensiones No Contributivas (Decreto N° 746/2017)",
+        "Pension Universal para el Adulto Mayor",
+        "Seguro de Desempleo",
+        "Atencion Pensiones Ex-Combatientes y Regimen Reparatorio Ley Nº26.913",
+        "Otros"
+      ],
+      "values": [
+        27891783,
+        5591797,
+        2901329,
+        1083627,
+        1062821,
+        951479,
+        752937,
+        428063,
+        246913,
+        216899,
+        179572
+      ],
+      "total": 41307220,
+      "columna": "programa_desc",
+      "titulo": "Programa"
+    }
+  ]
+}
