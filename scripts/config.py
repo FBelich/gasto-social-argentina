@@ -40,6 +40,12 @@ SECTIONS = {
             "administración nacional de la seg. social",
         ],
     },
+    "cajas previsionales provinciales": {
+        "label":  "Educación",
+        "color":  "#34C759",
+        "color_light": "rgba(52,199,89,.12)",
+        "entidad_keywords": ["ministerio de educacion"],
+    },
     # ── Futuras secciones (descomentar y completar cuando corresponda) ─────────
     # "educacion": {
     #     "label":   "Educación",

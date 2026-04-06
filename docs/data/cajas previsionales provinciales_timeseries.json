@@ -1,0 +1,71 @@
+{
+  "labels": [
+    2023
+  ],
+  "total": [
+    2415507
+  ],
+  "datasets": [
+    {
+      "label": "A las universidades nacionales",
+      "data": [
+        1358478
+      ]
+    },
+    {
+      "label": "A la Administración Pública Provincial",
+      "data": [
+        485422
+      ]
+    },
+    {
+      "label": "A unidades familiares",
+      "data": [
+        312511
+      ]
+    },
+    {
+      "label": "Maquinaria y equipo",
+      "data": [
+        113591
+      ]
+    },
+    {
+      "label": "Servicios no personales",
+      "data": [
+        55061
+      ]
+    },
+    {
+      "label": "Bienes de consumo",
+      "data": [
+        35374
+      ]
+    },
+    {
+      "label": "A las instituciones de enseñanza provinciales y municipales",
+      "data": [
+        14207
+      ]
+    },
+    {
+      "label": "A la Administración Pública Municipal",
+      "data": [
+        12701
+      ]
+    },
+    {
+      "label": "A instituciones privadas sin fines de lucro",
+      "data": [
+        12320
+      ]
+    },
+    {
+      "label": "Sueldos y salarios",
+      "data": [
+        9122
+      ]
+    }
+  ],
+  "clasificador_usado": "clasificador_economico_8_digitos_desc"
+}

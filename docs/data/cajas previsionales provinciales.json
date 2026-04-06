@@ -1,0 +1,187 @@
+{
+  "meta": {
+    "seccion": "cajas previsionales provinciales",
+    "label": "Educación",
+    "color": "#34C759",
+    "color_light": "rgba(52,199,89,.12)",
+    "anio_inicio": 2023,
+    "anio_fin": 2023,
+    "total_historico": 2415507,
+    "total_ultimo_anio": 2415507,
+    "ultima_actualizacion": "2026-04-06 19:05"
+  },
+  "timeseries": {
+    "labels": [
+      2023
+    ],
+    "total": [
+      2415507
+    ],
+    "datasets": [
+      {
+        "label": "A las universidades nacionales",
+        "data": [
+          1358478
+        ]
+      },
+      {
+        "label": "A la Administración Pública Provincial",
+        "data": [
+          485422
+        ]
+      },
+      {
+        "label": "A unidades familiares",
+        "data": [
+          312511
+        ]
+      },
+      {
+        "label": "Maquinaria y equipo",
+        "data": [
+          113591
+        ]
+      },
+      {
+        "label": "Servicios no personales",
+        "data": [
+          55061
+        ]
+      },
+      {
+        "label": "Bienes de consumo",
+        "data": [
+          35374
+        ]
+      },
+      {
+        "label": "A las instituciones de enseñanza provinciales y municipales",
+        "data": [
+          14207
+        ]
+      },
+      {
+        "label": "A la Administración Pública Municipal",
+        "data": [
+          12701
+        ]
+      },
+      {
+        "label": "A instituciones privadas sin fines de lucro",
+        "data": [
+          12320
+        ]
+      },
+      {
+        "label": "Sueldos y salarios",
+        "data": [
+          9122
+        ]
+      }
+    ],
+    "clasificador_usado": "clasificador_economico_8_digitos_desc"
+  },
+  "composition": {
+    "anio": 2023,
+    "cards": [
+      {
+        "labels": [
+          "A las universidades nacionales",
+          "A la Administración Pública Provincial",
+          "A unidades familiares",
+          "Maquinaria y equipo",
+          "Servicios no personales",
+          "Bienes de consumo",
+          "A las instituciones de enseñanza provinciales y municipales",
+          "A la Administración Pública Municipal",
+          "A instituciones privadas sin fines de lucro",
+          "Sueldos y salarios",
+          "Otros"
+        ],
+        "values": [
+          1358478,
+          485422,
+          312511,
+          113591,
+          55061,
+          35374,
+          14207,
+          12701,
+          12320,
+          9122,
+          6720
+        ],
+        "total": 2415507,
+        "columna": "clasificador_economico_8_digitos_desc",
+        "titulo": "Clasificador Economico 8 Digitos"
+      },
+      {
+        "labels": [
+          "Tesoro Nacional",
+          "Crédito Interno",
+          "Crédito Externo",
+          "Recursos con Afectación Específica",
+          "Transferencias Externas",
+          "Transferencias Internas"
+        ],
+        "values": [
+          1201663,
+          1191348,
+          22374,
+          122,
+          0,
+          0
+        ],
+        "total": 2415507,
+        "columna": "fuente_financiamiento_desc",
+        "titulo": "Fuente Financiamiento"
+      },
+      {
+        "labels": [
+          "Educación y Cultura",
+          "Salud",
+          "Ciencia, Tecnología e Innovación"
+        ],
+        "values": [
+          2392889,
+          14768,
+          7849
+        ],
+        "total": 2415507,
+        "columna": "funcion_desc",
+        "titulo": "Funcion"
+      },
+      {
+        "labels": [
+          "Desarrollo de la Educacion Superior",
+          "Fondo Nacional de Incentivo Docente",
+          "Gestion y Asignacion de Becas a Estudiantes",
+          "Gestion Educativa y Politicas Socioeducativas",
+          "Conectar Igualdad",
+          "Infraestructura y Equipamiento",
+          "Mejoramiento de la Calidad Educativa",
+          "Innovacion y Desarrollo de la Formacion Tecnologica",
+          "Fortalecimiento Edilicio de Jardines Infantiles",
+          "Actividades Centrales",
+          "Otros"
+        ],
+        "values": [
+          1380749,
+          333172,
+          294635,
+          116971,
+          105691,
+          57938,
+          37669,
+          31284,
+          29965,
+          11428,
+          16003
+        ],
+        "total": 2415507,
+        "columna": "programa_desc",
+        "titulo": "Programa"
+      }
+    ]
+  }
+}
