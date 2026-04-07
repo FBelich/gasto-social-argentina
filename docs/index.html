@@ -16,6 +16,41 @@
 
   <!-- Estilos -->
   <link rel="stylesheet" href="assets/css/styles.css"/>
+
+  <style>
+    /* Estilos para los botones del gráfico */
+    .btn-control {
+      background: transparent;
+      border: 1px solid #e2e8f0;
+      color: #64748b;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: inherit;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+    }
+    .btn-control:hover {
+      background: #f8fafc;
+      color: #0f172a;
+    }
+    .btn-control.active {
+      background: var(--anses, #007AFF);
+      border-color: var(--anses, #007AFF);
+      color: #fff;
+    }
+    .btn-download {
+      background: #f1f5f9;
+      color: #334155;
+    }
+    .btn-download:hover {
+      background: #e2e8f0;
+    }
+  </style>
 </head>
 <body>
 
@@ -84,19 +119,27 @@
     </div>
 
     <!-- Evolución histórica -->
-    <div class="shdr" style="margin-top:28px">
+<div class="shdr" style="margin-top:28px">
       <div class="stag">Evolución histórica</div>
-      <div class="sttl">Crédito devengado anual</div>
+      <div class="sttl">Crédito devengado</div>
     </div>
 
     <div class="chart-grid-full">
       <div class="card">
-        <div class="card-hdr">
+        <div class="card-hdr" style="align-items: center;">
           <div>
-            <div class="ctitle">Total anual · ANSES</div>
+            <div class="ctitle" id="title-line-anses">Total · ANSES</div>
             <div class="csub">Crédito devengado en pesos corrientes</div>
           </div>
-          <span class="cpill" style="color:var(--anses)">Serie histórica</span>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+            <button class="btn-control active" id="btn-anual-anses" onclick="cambiarFrecuencia('anual')">Anual</button>
+            <button class="btn-control" id="btn-mensual-anses" onclick="cambiarFrecuencia('mensual')">Mensual</button>
+            
+            <span style="color:#ccc; margin: 0 4px;">|</span>
+            
+            <a href="data/anses_descarga.csv" download class="btn-control btn-download">CSV</a>
+            <a href="data/anses_descarga.xlsx" download class="btn-control btn-download">XLSX</a>
+          </div>
         </div>
         <div class="cwrap">
           <div id="anses-line-total" style="height:300px;width:100%"></div>
@@ -106,12 +149,15 @@
 
     <div class="chart-grid-full">
       <div class="card">
-        <div class="card-hdr">
+        <div class="card-hdr" style="align-items: center;">
           <div>
             <div class="ctitle">Composición histórica por clasificador económico</div>
             <div class="csub">Barras apiladas · Crédito devengado por componente</div>
           </div>
-          <span class="cpill">Apilado</span>
+          <div style="display:flex; gap:8px;">
+            <a href="data/anses_descarga.csv" download class="btn-control btn-download">CSV</a>
+            <a href="data/anses_descarga.xlsx" download class="btn-control btn-download">XLSX</a>
+          </div>
         </div>
         <div class="cwrap">
           <div id="anses-stacked" style="height:340px;width:100%"></div>
@@ -151,8 +197,8 @@
 </footer>
 
 <!-- ── SCRIPTS ─────────────────────────────────────────────────────────────── -->
-<script src="assets/js/charts.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="assets/js/charts.js?v=3"></script>
+<script src="assets/js/app.js?v=3"></script>
 
 </body>
 </html>
