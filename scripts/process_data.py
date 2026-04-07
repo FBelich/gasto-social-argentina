@@ -57,22 +57,44 @@ def detectar_anio(df: pd.DataFrame, year_folder: int) -> pd.Series:
 
 def detectar_mes(df: pd.DataFrame) -> pd.Series:
     """
-    Extrae el mes de la columna de período si existe.
+    Extrae el mes de la columna de periodo si existe.
     Retorna NaN si no se puede determinar.
+
+    La columna real en los CSV de Presupuesto Abierto es
+    impacto_presupuestario_mes, que trae el numero de mes (1-12) directamente.
     """
-    for col in [COL_PERIODO, "periodo", "mes"]:
-        if col in df.columns:
-            s = df[col].astype(str)
-            # Formato YYYYMM → mes es los últimos 2 dígitos
-            if s.str.match(r"^\d{6}$").any():
-                return pd.to_numeric(s.str[-2:], errors="coerce")
-            # Formato MM/YYYY o YYYY-MM
-            if s.str.contains(r"[-/]").any():
-                try:
-                    parsed = pd.to_datetime(s, errors="coerce")
-                    return parsed.dt.month
-                except Exception:
-                    pass
+    for col in ["impacto_presupuestario_mes", COL_PERIODO, "periodo", "mes"]:
+        if col not in df.columns:
+            continue
+
+        s = df[col].astype(str).str.strip().str.replace(r"\.0$", "", regex=True)
+
+        # Enteros 1-12 directos (caso impacto_presupuestario_mes)
+        meses_directos = pd.to_numeric(s, errors="coerce")
+        validos = meses_directos.between(1, 12)
+        if validos.sum() > 0:
+            logger.info(f"  detectar_mes: col='{col}', enteros 1-12, filas={validos.sum()}")
+            return meses_directos.where(validos)
+
+        # Formato YYYYMM (6 digitos)
+        mask6 = s.str.match(r"^\d{6}$")
+        if mask6.sum() > 0:
+            meses = pd.to_numeric(s.str[-2:], errors="coerce")
+            meses = meses.where(meses.between(1, 12))
+            if meses.notna().sum() > 0:
+                logger.info(f"  detectar_mes: col='{col}', formato YYYYMM, filas={meses.notna().sum()}")
+                return meses
+
+        # Formato YYYY-MM
+        mask_dash = s.str.match(r"^\d{4}[-/]\d{2}$")
+        if mask_dash.sum() > 0:
+            meses = pd.to_numeric(s.str.split(r"[-/]").str[1], errors="coerce")
+            meses = meses.where(meses.between(1, 12))
+            if meses.notna().sum() > 0:
+                logger.info(f"  detectar_mes: col='{col}', formato YYYY-MM, filas={meses.notna().sum()}")
+                return meses
+
+    logger.warning(f"  detectar_mes: sin columna de mes. Columnas: {list(df.columns[:15])}")
     return pd.Series([None] * len(df))
 
 
@@ -162,14 +184,24 @@ def procesar_anio(year: int) -> pd.DataFrame | None:
 
 
 def filtrar_seccion(df: pd.DataFrame, section_key: str) -> pd.DataFrame:
-    """
-    Filtra el DataFrame para una sección (ej. 'anses')
-    usando match_entidad() con normalización robusta.
-    """
     cfg = SECTIONS[section_key]
+    
+    # 1. Filtro original por Entidad
     keywords = cfg["entidad_keywords"]
     mask = df["entidad_desc"].apply(lambda v: match_entidad(str(v), keywords))
-    return df[mask].copy()
+    df_filtrado = df[mask].copy()
+
+    # 2. Filtro por Clasificador Económico (Equivalente al %in% de R)
+    if "clasificador_eco_keywords" in cfg and not df_filtrado.empty:
+        eco_keywords = cfg["clasificador_eco_keywords"]
+        col_buscada = "clasificador_economico_8_digitos_desc"
+        
+        # Filtramos estrictamente en la columna de 8 dígitos como en el script de R
+        if col_buscada in df_filtrado.columns:
+            mask_eco = df_filtrado[col_buscada].apply(lambda v: match_entidad(str(v), eco_keywords))
+            df_filtrado = df_filtrado[mask_eco]
+
+    return df_filtrado
 
 
 def construir_base_historica(year_start: int, year_end: int) -> pd.DataFrame:

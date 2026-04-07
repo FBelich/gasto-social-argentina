@@ -24,7 +24,10 @@ async function fetchJSON(path) {
 async function loadSection(key) {
   if (DATA[key]) return DATA[key];
   try {
-    const d = await fetchJSON(`data/${key}.json`);
+    // Le agregamos un timestamp falso al final para romper la caché del JSON
+    const timestamp = new Date().getTime();
+    const d = await fetchJSON(`data/${key}.json?t=${timestamp}`);
+    
     DATA[key] = d;
     return d;
   } catch (e) {
@@ -89,22 +92,26 @@ function renderAnses(d) {
   const { meta, timeseries: ts, composition: comp } = d;
   const color = meta.color;
 
-  // KPIs
-  renderKPIs("anses-kpis", meta, ts);
+  // Guardar datos globalmente para los botones Anual/Mensual
+  DATA["anses"] = d;
+
+  // KPIs: Le ponemos un salvavidas. Si no encuentra "ts.anual", usa "ts" (formato viejo)
+  const datosKPI = ts.anual ? ts.anual : ts; 
+  renderKPIs("anses-kpis", meta, datosKPI);
 
   // ── Evolución histórica ──────────────────────────────────────────────────
-  // Actualizar badge del bubble nav
   const bkpi = document.getElementById("bkpi-anses");
   if (bkpi && meta.total_ultimo_anio) {
     bkpi.textContent = fmtNum(meta.total_ultimo_anio) + " $";
   }
 
-  // Gráfico de línea: total histórico
-  renderLineChart("anses-line-total", ts, color);
+  // Gráfico de línea: Usar ts.anual por defecto
+  const serieLinea = ts.anual ? ts.anual : ts;
+  renderLineChart("anses-line-total", serieLinea, color);
 
-  // Gráfico de barras apiladas: por clasificador
-  if (ts.datasets && ts.datasets.length > 0) {
-    renderStackedBar("anses-stacked", ts, PALETTE_ANSES);
+  // Gráfico de barras apiladas: Usar ts.anual
+  if (serieLinea.datasets && serieLinea.datasets.length > 0) {
+    renderStackedBar("anses-stacked", serieLinea, PALETTE_ANSES);
   } else {
     const el = document.getElementById("anses-stacked");
     if (el) el.closest(".card").innerHTML = `
@@ -127,7 +134,6 @@ function renderAnses(d) {
     return;
   }
 
-  // Generar una card por cada clasificador con datos
   const cardsHTML = comp.cards.map((card, i) => `
     <div class="card" style="animation-delay:${i * 0.05}s">
       <div class="card-hdr">
@@ -145,18 +151,59 @@ function renderAnses(d) {
 
   compContainer.innerHTML = cardsHTML;
 
-  // Renderizar cada gráfico de barras horizontales
   comp.cards.forEach((card, i) => {
     renderHBar(`hbar-${i}`, card, color);
   });
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Controles de Gráficos (Anual / Mensual)
+// ─────────────────────────────────────────────────────────────────────────────
+
+window.cambiarFrecuencia = function(frecuencia) {
+  if (!DATA["anses"] || !DATA["anses"].timeseries) return;
+
+  const ts = DATA["anses"].timeseries;
+  const dataFrecuencia = ts[frecuencia];
+  const color = DATA["anses"].meta.color || "#007AFF";
+
+  if (!dataFrecuencia || !dataFrecuencia.labels || dataFrecuencia.labels.length === 0) {
+    console.warn("No hay datos para la frecuencia: " + frecuencia);
+    return;
+  }
+
+  // Destruir la instancia anterior y recrear el gráfico desde cero.
+  // Los datos anuales (32 puntos, labels numéricos) y mensuales (~380 puntos,
+  // labels "YYYY-MM") tienen escalas incompatibles: un setOption parcial con
+  // merge=false deja el gráfico en blanco porque ECharts no limpia el estado
+  // interno del eje X al cambiar drásticamente la cantidad de categorías.
+  const chartDom = document.getElementById('anses-line-total');
+  const existingChart = echarts.getInstanceByDom(chartDom);
+  if (existingChart) existingChart.dispose();
+
+  renderLineChart("anses-line-total", dataFrecuencia, color);
+
+  // Cambiar estado visual de los botones
+  const btnAnual   = document.getElementById('btn-anual-anses');
+  const btnMensual = document.getElementById('btn-mensual-anses');
+  if (btnAnual && btnMensual) {
+    btnAnual.classList.remove('active');
+    btnMensual.classList.remove('active');
+    document.getElementById(`btn-${frecuencia}-anses`).classList.add('active');
+  }
+
+  // Actualizar el título
+  const titulo = document.getElementById('title-line-anses');
+  if (titulo) {
+    titulo.innerText = frecuencia === 'anual' ? 'Total Anual · ANSES' : 'Total Mensual · ANSES';
+  }
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Navegación por burbujas
 // ─────────────────────────────────────────────────────────────────────────────
 
 async function activarSeccion(key) {
-  // Actualizar estado visual de los botones
   document.querySelectorAll(".bubble").forEach(b => b.classList.remove("active"));
   document.querySelectorAll(".cpanel").forEach(p => p.classList.remove("active"));
 
@@ -166,21 +213,18 @@ async function activarSeccion(key) {
   if (bubble) bubble.classList.add("active");
   if (panel)  panel.classList.add("active");
 
-  // Cargar datos si no están cargados
   const overlay = document.getElementById("loverlay");
   if (!DATA[key]) {
     if (overlay) overlay.classList.remove("hidden");
     const d = await loadSection(key);
     if (overlay) overlay.classList.add("hidden");
     if (!d) {
-      showError(`No se pudieron cargar los datos de la sección "${key}". Ejecutá el pipeline de Python primero.`);
+      showError(`No se pudieron cargar los datos de la sección "${key}".`);
       return;
     }
   }
 
-  // Renderizar según la sección
   if (key === "anses") renderAnses(DATA[key]);
-  // Futuras secciones: else if (key === "educacion") renderEducacion(DATA[key]);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -203,7 +247,6 @@ function showError(msg) {
 async function init() {
   const overlay = document.getElementById("loverlay");
 
-  // Inicializar navegación
   document.querySelectorAll(".bubble").forEach(btn => {
     btn.addEventListener("click", () => {
       const key = btn.dataset.section;
@@ -211,11 +254,9 @@ async function init() {
     });
   });
 
-  // Cargar index.json para saber qué secciones hay
   try {
     const idx = await fetchJSON("data/index.json");
     SECTIONS = idx.secciones || [];
-    // Actualizar fecha en el header
     const fechaEl = document.getElementById("headerSub");
     if (fechaEl && SECTIONS.length > 0) {
       const last = SECTIONS[0].ultima_actualizacion || "";
@@ -225,7 +266,6 @@ async function init() {
     console.warn("No se pudo cargar index.json:", e.message);
   }
 
-  // Activar primera sección por defecto (ANSES)
   if (overlay) overlay.classList.remove("hidden");
   await activarSeccion("anses");
   if (overlay) overlay.classList.add("hidden");
