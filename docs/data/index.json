@@ -5,23 +5,23 @@
       "label": "ANSES",
       "color": "#007AFF",
       "color_light": "rgba(0,122,255,.12)",
-      "anio_inicio": 2023,
+      "anio_inicio": 2002,
       "anio_fin": 2024,
-      "total_historico": 56060417,
+      "total_historico": 77925635,
       "total_ultimo_anio": 41307220,
-      "ultima_actualizacion": "2026-04-06 19:05"
+      "ultima_actualizacion": "2026-04-13 08:32"
     },
     {
       "seccion": "cajas previsionales provinciales",
       "label": "Educación",
       "color": "#34C759",
       "color_light": "rgba(52,199,89,.12)",
-      "anio_inicio": 2023,
+      "anio_inicio": 2002,
       "anio_fin": 2023,
-      "total_historico": 2415507,
+      "total_historico": 4999554,
       "total_ultimo_anio": 2415507,
-      "ultima_actualizacion": "2026-04-06 19:05"
+      "ultima_actualizacion": "2026-04-13 08:32"
     }
   ],
-  "generado": "2026-04-06T19:05:21.317401"
+  "generado": "2026-04-13T08:32:42.615954"
 }
