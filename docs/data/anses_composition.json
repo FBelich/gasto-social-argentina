@@ -1,5 +1,5 @@
 {
-  "anio": 2023,
+  "anio": 2024,
   "cards": [
     {
       "labels": [
@@ -7,47 +7,47 @@
         "A unidades familiares",
         "A los fondos fiduciarios y otros entes del Sector Público Nacional no financiero",
         "Sueldos y salarios",
-        "A la Administración Pública Provincial",
         "Contribuciones patronales",
         "Servicios no personales",
         "Beneficios y compensaciones",
-        "Prestaciones sociales",
+        "A la Administración Pública Provincial",
         "Rentas sobre bienes intangibles",
+        "Prestaciones sociales",
         "Otros"
       ],
       "values": [
-        10871776,
-        2898766,
-        451408,
-        233203,
-        170878,
-        64787,
-        27412,
-        20414,
-        5005,
-        3069,
-        6478
+        30241161,
+        8920276,
+        1263579,
+        544842,
+        149047,
+        88145,
+        46871,
+        26000,
+        12184,
+        10068,
+        5047
       ],
-      "total": 14753197,
+      "total": 41307220,
       "columna": "clasificador_economico_8_digitos_desc",
       "titulo": "Clasificador Economico 8 Digitos"
     },
     {
       "labels": [
         "Recursos Propios",
-        "Crédito Interno",
         "Tesoro Nacional",
+        "Crédito Interno",
         "Crédito Externo",
         "Transferencias Externas"
       ],
       "values": [
-        11053709,
-        2164647,
-        1534611,
-        219,
-        11
+        36645908,
+        3194331,
+        1466980,
+        0,
+        0
       ],
-      "total": 14753197,
+      "total": 41307220,
       "columna": "fuente_financiamiento_desc",
       "titulo": "Fuente Financiamiento"
     },
@@ -57,10 +57,10 @@
         "Salud"
       ],
       "values": [
-        14352366,
-        400831
+        40070686,
+        1236534
       ],
-      "total": 14753197,
+      "total": 41307220,
       "columna": "funcion_desc",
       "titulo": "Funcion"
     },
@@ -74,24 +74,24 @@
         "Atencion Ex-Cajas Provinciales",
         "Pensiones No Contributivas (Decreto N° 746/2017)",
         "Pension Universal para el Adulto Mayor",
-        "Atencion Pensiones Ex-Combatientes y Regimen Reparatorio Ley Nº26.913",
         "Seguro de Desempleo",
+        "Atencion Pensiones Ex-Combatientes y Regimen Reparatorio Ley Nº26.913",
         "Otros"
       ],
       "values": [
-        9941177,
-        1548816,
-        1044463,
-        798003,
-        427200,
-        347395,
-        291291,
-        203744,
-        88170,
-        46683,
-        16255
+        27891783,
+        5591797,
+        2901329,
+        1083627,
+        1062821,
+        951479,
+        752937,
+        428063,
+        246913,
+        216899,
+        179572
       ],
-      "total": 14753197,
+      "total": 41307220,
       "columna": "programa_desc",
       "titulo": "Programa"
     }
