@@ -5,10 +5,10 @@
     "color": "#34C759",
     "color_light": "rgba(52,199,89,.12)",
     "anio_inicio": 2002,
-    "anio_fin": 2023,
-    "total_historico": 4999554,
-    "total_ultimo_anio": 2415507,
-    "ultima_actualizacion": "2026-07-20 09:41"
+    "anio_fin": 2018,
+    "total_historico": 550322,
+    "total_ultimo_anio": 163721,
+    "ultima_actualizacion": "2026-07-27 10:06"
   },
   "timeseries": {
     "labels": [
@@ -27,13 +27,7 @@
       2014,
       2015,
       2016,
-      2017,
-      2018,
-      2019,
-      2020,
-      2021,
-      2022,
-      2023
+      2018
     ],
     "total": [
       2162,
@@ -51,42 +45,9 @@
       52065,
       70042,
       96457,
-      134509,
-      163721,
-      202715,
-      275580,
-      502379,
-      918542,
-      2415507
+      163721
     ],
     "datasets": [
-      {
-        "label": "A las universidades nacionales",
-        "data": [
-          1636,
-          1983,
-          2152,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          550196,
-          1358478
-        ]
-      },
       {
         "label": "A las Universidades Nacionales",
         "data": [
@@ -105,13 +66,7 @@
           36783,
           48787,
           63804,
-          87789,
-          108796,
-          148831,
-          206921,
-          312775,
-          0,
-          0
+          108796
         ]
       },
       {
@@ -132,94 +87,7 @@
           9447,
           12911,
           24356,
-          33519,
-          34188,
-          33136,
-          49212,
-          95844,
-          155172,
-          0
-        ]
-      },
-      {
-        "label": "A la Administración Pública Provincial",
-        "data": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          485422
-        ]
-      },
-      {
-        "label": "A unidades familiares",
-        "data": [
-          201,
-          145,
-          131,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          110510,
-          312511
-        ]
-      },
-      {
-        "label": "Maquinaria y equipo",
-        "data": [
-          0,
-          1,
-          2,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          40945,
-          113591
+          34188
         ]
       },
       {
@@ -240,67 +108,7 @@
           802,
           1096,
           1771,
-          2309,
-          10716,
-          10844,
-          10327,
-          47731,
-          0,
-          0
-        ]
-      },
-      {
-        "label": "Servicios no personales",
-        "data": [
-          20,
-          18,
-          28,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          10034,
-          55061
-        ]
-      },
-      {
-        "label": "Bienes de consumo",
-        "data": [
-          1,
-          2,
-          51,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          18411,
-          35374
+          10716
         ]
       },
       {
@@ -321,49 +129,169 @@
           2137,
           3283,
           1929,
-          3867,
-          1259,
-          1012,
+          1259
+        ]
+      },
+      {
+        "label": "A las universidades nacionales",
+        "data": [
+          1636,
           1983,
-          11669,
-          11501,
+          2152,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
           0
+        ]
+      },
+      {
+        "label": "Maquinaria y Equipo",
+        "data": [
+          0,
+          0,
+          0,
+          3,
+          5,
+          38,
+          1,
+          6,
+          8,
+          7,
+          19,
+          113,
+          563,
+          584,
+          1118,
+          2367
+        ]
+      },
+      {
+        "label": "Servicios No Personales",
+        "data": [
+          0,
+          0,
+          0,
+          33,
+          60,
+          88,
+          89,
+          114,
+          158,
+          167,
+          191,
+          318,
+          483,
+          779,
+          712,
+          1447
+        ]
+      },
+      {
+        "label": "Sueldos y Salarios",
+        "data": [
+          0,
+          0,
+          0,
+          48,
+          57,
+          69,
+          83,
+          109,
+          130,
+          166,
+          227,
+          283,
+          345,
+          474,
+          762,
+          893
+        ]
+      },
+      {
+        "label": "Bienes de Consumo",
+        "data": [
+          0,
+          0,
+          0,
+          16,
+          15,
+          13,
+          30,
+          128,
+          101,
+          126,
+          147,
+          326,
+          379,
+          714,
+          329,
+          736
+        ]
+      },
+      {
+        "label": "A los Gobiernos Municipales",
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          20,
+          38,
+          82,
+          103,
+          180,
+          688,
+          864,
+          674,
+          406
         ]
       }
     ],
     "clasificador_usado": "clasificador_economico_8_digitos_desc"
   },
   "composition": {
-    "anio": 2023,
+    "anio": 2018,
     "cards": [
       {
         "labels": [
-          "A las universidades nacionales",
-          "A la Administración Pública Provincial",
-          "A unidades familiares",
-          "Maquinaria y equipo",
-          "Servicios no personales",
-          "Bienes de consumo",
-          "A las instituciones de enseñanza provinciales y municipales",
-          "A la Administración Pública Municipal",
-          "A instituciones privadas sin fines de lucro",
-          "Sueldos y salarios",
+          "A las Universidades Nacionales",
+          "A los Gobiernos Provinciales",
+          "A Unidades Familiares",
+          "Maquinaria y Equipo",
+          "Construcciones del Dominio Privado",
+          "Servicios No Personales",
+          "A las instituciones de enseñanza provinciales",
+          "A Instituciones Privadas Sin Fines de Lucro",
+          "Sueldos y Salarios",
+          "Bienes de Consumo",
           "Otros"
         ],
         "values": [
-          1358478,
-          485422,
-          312511,
-          113591,
-          55061,
-          35374,
-          14207,
-          12701,
-          12320,
-          9122,
-          6720
+          108796,
+          34188,
+          10716,
+          2367,
+          1573,
+          1447,
+          1259,
+          1002,
+          893,
+          736,
+          745
         ],
-        "total": 2415507,
+        "total": 163721,
         "columna": "clasificador_economico_8_digitos_desc",
         "titulo": "Clasificador Economico 8 Digitos"
       },
@@ -372,19 +300,19 @@
           "Tesoro Nacional",
           "Crédito Interno",
           "Crédito Externo",
+          "Transferencias Internas",
           "Recursos con Afectación Específica",
-          "Transferencias Externas",
-          "Transferencias Internas"
+          "Transferencias Externas"
         ],
         "values": [
-          1201663,
-          1191348,
-          22374,
-          122,
-          0,
+          146790,
+          14583,
+          2341,
+          5,
+          3,
           0
         ],
-        "total": 2415507,
+        "total": 163721,
         "columna": "fuente_financiamiento_desc",
         "titulo": "Fuente Financiamiento"
       },
@@ -392,45 +320,45 @@
         "labels": [
           "Educación y Cultura",
           "Salud",
-          "Ciencia, Tecnología e Innovación"
+          "Ciencia y Técnica"
         ],
         "values": [
-          2392889,
-          14768,
-          7849
+          161403,
+          1408,
+          910
         ],
-        "total": 2415507,
+        "total": 163721,
         "columna": "funcion_desc",
         "titulo": "Funcion"
       },
       {
         "labels": [
           "Desarrollo de la Educacion Superior",
-          "Fondo Nacional de Incentivo Docente",
-          "Gestion y Asignacion de Becas a Estudiantes",
-          "Gestion Educativa y Politicas Socioeducativas",
-          "Conectar Igualdad",
-          "Infraestructura y Equipamiento",
-          "Mejoramiento de la Calidad Educativa",
+          "Fondo Nacional de Incentivo Docente y Compensaciones Salariales",
           "Innovacion y Desarrollo de la Formacion Tecnologica",
+          "Gestion Educativa y Politicas Socioeducativas",
+          "Implementacion del Plan Nacional de Educacion Digital",
+          "Infraestructura y Equipamiento",
           "Fortalecimiento Edilicio de Jardines Infantiles",
+          "Acciones de Formacion Docente",
+          "Mejoramiento de la Calidad Educativa",
           "Actividades Centrales",
           "Otros"
         ],
         "values": [
-          1380749,
-          333172,
-          294635,
-          116971,
-          105691,
-          57938,
-          37669,
-          31284,
-          29965,
-          11428,
-          16003
+          118930,
+          24571,
+          4125,
+          3509,
+          3060,
+          2927,
+          2088,
+          1479,
+          1288,
+          906,
+          838
         ],
-        "total": 2415507,
+        "total": 163721,
         "columna": "programa_desc",
         "titulo": "Programa"
       }
