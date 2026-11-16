@@ -1,53 +1,53 @@
 {
-  "anio": 2023,
+  "anio": 2021,
   "cards": [
     {
       "labels": [
-        "Prestaciones de la seguridad social",
-        "A unidades familiares",
-        "A los fondos fiduciarios y otros entes del Sector Público Nacional no financiero",
-        "Sueldos y salarios",
-        "A la Administración Pública Provincial",
-        "Contribuciones patronales",
-        "Servicios no personales",
-        "Beneficios y compensaciones",
-        "Prestaciones sociales",
-        "Rentas sobre bienes intangibles",
+        "Prestaciones de la Seguridad Social",
+        "A Unidades Familiares",
+        "A Fondos Fiduciarios y otros Entes del SPNnF",
+        "A los Gobiernos Provinciales",
+        "Sueldos y Salarios",
+        "Servicios No Personales",
+        "Contribuciones Patronales",
+        "Beneficios y Compensaciones",
+        "Prestaciones Sociales",
+        "Maquinaria y Equipo",
         "Otros"
       ],
       "values": [
-        10871776,
-        2898766,
-        451408,
-        233203,
-        170878,
-        64787,
-        27412,
-        20414,
-        5005,
-        3069,
-        6478
+        3177969,
+        677923,
+        129097,
+        58538,
+        29555,
+        9760,
+        7975,
+        2429,
+        804,
+        746,
+        1291
       ],
-      "total": 14753197,
+      "total": 4096087,
       "columna": "clasificador_economico_8_digitos_desc",
       "titulo": "Clasificador Economico 8 Digitos"
     },
     {
       "labels": [
         "Recursos Propios",
-        "Crédito Interno",
         "Tesoro Nacional",
+        "Crédito Interno",
         "Crédito Externo",
         "Transferencias Externas"
       ],
       "values": [
-        11053709,
-        2164647,
-        1534611,
-        219,
-        11
+        2586833,
+        974066,
+        534985,
+        200,
+        3
       ],
-      "total": 14753197,
+      "total": 4096087,
       "columna": "fuente_financiamiento_desc",
       "titulo": "Fuente Financiamiento"
     },
@@ -57,10 +57,10 @@
         "Salud"
       ],
       "values": [
-        14352366,
-        400831
+        3983514,
+        112574
       ],
-      "total": 14753197,
+      "total": 4096087,
       "columna": "funcion_desc",
       "titulo": "Funcion"
     },
@@ -68,30 +68,28 @@
       "labels": [
         "Prestaciones Previsionales",
         "Asignaciones Familiares",
-        "Complementos a las Prestaciones Previsionales",
         "Transferencias y Contribuciones a la Seguridad Social y Organismos Descentralizados",
-        "Actividades Centrales",
-        "Atencion Ex-Cajas Provinciales",
         "Pensiones No Contributivas (Decreto N° 746/2017)",
+        "Atencion Ex-Cajas Provinciales",
+        "Actividades Centrales",
+        "Complementos a las Prestaciones Previsionales",
         "Pension Universal para el Adulto Mayor",
         "Atencion Pensiones Ex-Combatientes y Regimen Reparatorio Ley Nº26.913",
-        "Seguro de Desempleo",
-        "Otros"
+        "Seguro de Desempleo"
       ],
       "values": [
-        9941177,
-        1548816,
-        1044463,
-        798003,
-        427200,
-        347395,
-        291291,
-        203744,
-        88170,
-        46683,
-        16255
+        2901233,
+        572472,
+        194452,
+        104629,
+        98522,
+        69084,
+        63882,
+        51263,
+        22322,
+        18228
       ],
-      "total": 14753197,
+      "total": 4096087,
       "columna": "programa_desc",
       "titulo": "Programa"
     }

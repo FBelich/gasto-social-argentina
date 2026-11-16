@@ -1,34 +1,34 @@
 {
-  "anio": 2023,
+  "anio": 2021,
   "cards": [
     {
       "labels": [
-        "A las universidades nacionales",
-        "A la Administración Pública Provincial",
-        "A unidades familiares",
-        "Maquinaria y equipo",
-        "Servicios no personales",
-        "Bienes de consumo",
-        "A las instituciones de enseñanza provinciales y municipales",
-        "A la Administración Pública Municipal",
-        "A instituciones privadas sin fines de lucro",
-        "Sueldos y salarios",
+        "A las Universidades Nacionales",
+        "A los Gobiernos Provinciales",
+        "A Unidades Familiares",
+        "Maquinaria y Equipo",
+        "A las instituciones de enseñanza provinciales",
+        "Servicios No Personales",
+        "Construcciones del Dominio Privado",
+        "Bienes de Consumo",
+        "A Instituciones Privadas Sin Fines de Lucro",
+        "Activos Intangibles",
         "Otros"
       ],
       "values": [
-        1358478,
-        485422,
-        312511,
-        113591,
-        55061,
-        35374,
-        14207,
-        12701,
-        12320,
-        9122,
-        6720
+        312775,
+        95844,
+        47731,
+        12135,
+        11669,
+        5819,
+        4999,
+        3489,
+        2781,
+        2089,
+        3049
       ],
-      "total": 2415507,
+      "total": 502379,
       "columna": "clasificador_economico_8_digitos_desc",
       "titulo": "Clasificador Economico 8 Digitos"
     },
@@ -36,20 +36,18 @@
       "labels": [
         "Tesoro Nacional",
         "Crédito Interno",
-        "Crédito Externo",
         "Recursos con Afectación Específica",
-        "Transferencias Externas",
-        "Transferencias Internas"
+        "Crédito Externo",
+        "Transferencias Externas"
       ],
       "values": [
-        1201663,
-        1191348,
-        22374,
-        122,
-        0,
-        0
+        405595,
+        70006,
+        18176,
+        8597,
+        6
       ],
-      "total": 2415507,
+      "total": 502379,
       "columna": "fuente_financiamiento_desc",
       "titulo": "Fuente Financiamiento"
     },
@@ -57,14 +55,14 @@
       "labels": [
         "Educación y Cultura",
         "Salud",
-        "Ciencia, Tecnología e Innovación"
+        "Ciencia y Técnica"
       ],
       "values": [
-        2392889,
-        14768,
-        7849
+        495408,
+        5201,
+        1771
       ],
-      "total": 2415507,
+      "total": 502379,
       "columna": "funcion_desc",
       "titulo": "Funcion"
     },
@@ -73,29 +71,29 @@
         "Desarrollo de la Educacion Superior",
         "Fondo Nacional de Incentivo Docente",
         "Gestion y Asignacion de Becas a Estudiantes",
-        "Gestion Educativa y Politicas Socioeducativas",
-        "Conectar Igualdad",
-        "Infraestructura y Equipamiento",
-        "Mejoramiento de la Calidad Educativa",
-        "Innovacion y Desarrollo de la Formacion Tecnologica",
+        "Implementacion del Plan Federal Juana Manso",
         "Fortalecimiento Edilicio de Jardines Infantiles",
+        "Gestion Educativa y Politicas Socioeducativas",
+        "Infraestructura y Equipamiento",
+        "Innovacion y Desarrollo de la Formacion Tecnologica",
+        "Mejoramiento de la Calidad Educativa",
         "Actividades Centrales",
         "Otros"
       ],
       "values": [
-        1380749,
-        333172,
-        294635,
-        116971,
-        105691,
-        57938,
-        37669,
-        31284,
-        29965,
-        11428,
-        16003
+        317898,
+        57372,
+        44191,
+        18106,
+        16376,
+        16162,
+        13530,
+        8378,
+        4090,
+        1917,
+        4358
       ],
-      "total": 2415507,
+      "total": 502379,
       "columna": "programa_desc",
       "titulo": "Programa"
     }

@@ -6,10 +6,10 @@
       "color": "#007AFF",
       "color_light": "rgba(0,122,255,.12)",
       "anio_inicio": 2002,
-      "anio_fin": 2023,
-      "total_historico": 35334761,
-      "total_ultimo_anio": 14753197,
-      "ultima_actualizacion": "2026-11-09 15:55"
+      "anio_fin": 2021,
+      "total_historico": 11491493,
+      "total_ultimo_anio": 4096087,
+      "ultima_actualizacion": "2026-11-16 15:19"
     },
     {
       "seccion": "cajas previsionales provinciales",
@@ -17,11 +17,11 @@
       "color": "#34C759",
       "color_light": "rgba(52,199,89,.12)",
       "anio_inicio": 2002,
-      "anio_fin": 2023,
-      "total_historico": 4834396,
-      "total_ultimo_anio": 2415507,
-      "ultima_actualizacion": "2026-11-09 15:55"
+      "anio_fin": 2021,
+      "total_historico": 1243072,
+      "total_ultimo_anio": 502379,
+      "ultima_actualizacion": "2026-11-16 15:19"
     }
   ],
-  "generado": "2026-11-09T15:55:47.708530"
+  "generado": "2026-11-16T15:19:52.407484"
 }
